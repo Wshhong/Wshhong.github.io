@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+.wrap {
+	height:220px;
+	width:330px;
+	margin:60px auto;
+	position:relative;
+	overflow:hidden;
+}
+.wrap ul {
+	position:absolute;
+}
+.wrap ul li {
+	height:220px;
+}
+.wrap ol {
+	position:absolute;
+	right:5px;
+	bottom:10px;
+}
+.wrap ol li {
+	height:20px;
+	width:20px;
+	background:#ddd;
+	border:1px solid #969591;
+	border-radius:10%;
+	margin-left:5px;
+	color:#959490;
+	float:left;
+	text-align:center;
+	cursor:pointer;
+}
+.wrap ol .on {
+	background:#8F9E9E;
+	color:#fff;
+}
+#pic img{
+	height: 300px;
+	width: 330px;
+}
+		</style>
+	</head>
+	<body>
+		<div class="wrap" id="wrap">
+    <ul id="pic">
+        
+
+        <li><img src="img2/1.jpg" alt=""></li>
+        <li><img src="img2/2.jpg" alt=""></li>
+        <li><img src="img2/3.jpg" alt=""></li>
+        <li><img src="img2/4.jpg" alt=""></li>
+        <li><img  src="img2/5.jpg"  alt=""></li>
+    </ul>
+    <ol id="list">
+        <li class="on">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ol>
+</div>
+	</body>
+	<script type="text/javascript">
+		 window.onload = function() {
+     var wrap = document.getElementById('wrap'),
+         pic = document.getElementById('pic'),
+         list = document.getElementById('list').getElementsByTagName('li'),
+         index = 0,
+         timer = null;
+
+     // 若果有在等待的定时器，则清掉
+     if (timer) {
+         clearInterval(timer);
+         timer = null;
+     }
+
+     // 自动切换
+     timer = setInterval(autoPlay, 2000);
+
+     // 定义并调用自动播放函数
+     function autoPlay() {
+         index++;
+         if (index >= list.length) {
+             index = 0;
+         }
+         changeImg(index);
+     }
+
+     // 定义图片切换函数
+     function changeImg(curIndex) {
+         for (var j = 0; j < list.length; j++) {
+             list[j].className = "";
+         }
+         // 改变当前显示索引
+         list[curIndex].className = "on";
+         pic.style.marginTop = -220 * curIndex + "px";
+         index = curIndex;
+     }
+
+     // 鼠标划过整个容器时停止自动播放
+     wrap.onmouseover = function() {
+         clearInterval(timer);
+     }
+
+     // 鼠标离开整个容器时继续播放至下一张
+     wrap.onmouseout = function() {
+         timer = setInterval(autoPlay, 2000);
+     }
+
+     // 遍历所有数字导航实现划过切换至对应的图片
+     for (var i = 0; i < list.length; i++) {
+         list[i].id = i;
+         list[i].onmouseover = function() {
+             clearInterval(timer);
+             changeImg(this.id);
+         }
+     }
+ }
+	</script>
+</html>

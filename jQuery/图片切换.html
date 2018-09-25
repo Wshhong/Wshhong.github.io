@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="jquery-3.2.1.js" type="text/javascript" charset="utf-8"></script>
+	<style>
+		div{
+			width:200px;
+			height:200px;
+			background:#ccc;
+			float:left;
+			margin-top:20px;
+			border: 1px solid black;
+		}
+		div img{
+			width: 200px;
+			height: 200px;
+		}
+		ul{
+			list-style: none;
+			float:left;
+			width:20px;
+			padding-left:10px;
+		}
+		ul li{
+			width:60px;
+			height:60px;
+			margin-top:5px;
+			background-color: #ddd;
+			border: 1px solid black;
+		}
+		ul li img{
+			width: 60px;
+			height: 60px;
+		}
+	</style>
+</head>
+<body>
+	<div><img src="img/0.jpg"></div>
+	<ul>
+		<li><img src="img/0.jpg"></li>
+		<li><img src="img/1.jpg"></li>
+		<li><img src="img/2.jpg"></li>
+	</ul>
+</body>
+<script type="text/javascript">
+	$(function(){
+		$("ul li:eq(0)").click(function(){
+		 $("div").html("<img src='img/0.jpg'>")
+		});
+		$("ul li:eq(1)").click(function(){
+		 $("div").html("<img src='img/1.jpg'>")
+		});
+		$("ul li:eq(2)").click(function(){
+		 $("div").html("<img src='img/2.jpg'>")
+		});
+	});
+</script>
+</html>

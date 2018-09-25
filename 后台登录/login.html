@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>登录</title>
+	<link rel="stylesheet" type="text/css" href="lib/css/bootstrap.css"/>
+	<link rel="stylesheet" type="text/css" href="lib/css/bootstrap-theme.css"/>
+	<style>
+		.loginForm{
+			background: #F99;
+			max-width:500px;
+			position: absolute;
+			left:50%;
+			top:50%;
+			transform:translateX(-50%) translateY(-50%);
+			animation:loginin .5s;
+			padding:15px;
+			border-radius: 10px;
+		}
+		@keyframes loginin{
+			from{
+				top:-10%;
+			}
+			to{
+				top:50%;
+			}
+		}
+		.form-horizontal .has-feedback .form-control-feedback.left{
+			left:15px;
+		}
+		.loginForm .img-thumbnail{
+			max-width: 150px;
+			max-height: 34px;
+		}
+	</style>
+	<script src="jquery-3.3.1.js" type="text/javascript" charset="utf-8"></script>
+	<script src="lib/js/bootstrap.js" type="text/javascript" charset="utf-8"></script>
+	<script src="jquery.validate.min.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+	<form class="form-horizontal col-xs-12 loginForm">
+		<div class="form-group has-feedback">
+			<label class="control-label col-sm-2">账号:</label>
+			<div class="col-sm-10">
+				<i class="glyphicon glyphicon-user form-control-feedback left"></i>
+				<input type="text" name="username" class="form-control" />
+			</div>
+		</div>
+		<div class="form-group has-feedback">
+			<label class="control-label col-sm-2">密码:</label>
+			<div class="col-sm-10">
+				<i class="glyphicon glyphicon-lock form-control-feedback left"></i>
+				<input type="text" class="form-control" name="password" />
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-2">验证码:</label>
+			<div class="col-sm-4">
+				<input type="text" class="form-control" name="capcha"/>
+			</div>
+			<div class="col-sm-4">
+				<img src="img/vcode.png" class="img-thumbnail" width="100" height="34" />
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-xs-offset-2 col-xs-4">
+				<button type="submit" data-loading-text="正在登录" class="btn btn-primary col-xs-10">登录</button>
+			</div>
+			<div class=" col-xs-4">
+				<button type="reset" class="btn btn-warning col-xs-10">重置</button>
+			</div>
+		</div>
+	</form>
+	<div class="modal fade" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+		  <div class="modal-header">登录信息</div>
+		  <div class="modal-body">登录成功</div>
+			<div class="modal-footer">
+
+			</div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+	<script>
+		$(function () {
+  		$('[data-toggle="tooltip"]').tooltip()
+		})
+		$(function(){
+			$('form').validate({
+				rules:{
+					username:{
+						required:true,
+						rangelength:[3,20]
+					},
+					password:{
+						required:true,
+						rangelength:[5,20]
+					}
+				},
+				messages:{
+					username:{
+						required:'用户名不能为空',
+						rangelength:'用户名长度为3-20位'
+					},
+					password:{
+						required:"密码不能为空",
+						rangelength:"密码长度为5-20位",
+					}
+				},
+				unhighlight:function(element,errorClass,validateClass){
+					$(element).tooltip('destroy').removeClass(errorClass);
+				},
+				errorPlacement:function(error,element){
+					if($(element).next('div').hasClass('tooltip')){
+						$(element).attr('data-original-title',error.text()).tooltip();
+					}else{
+						$(element).attr('title',error.text()).tooltip('show');
+					}
+				},
+				submitHandler:function(e){
+					//$('.modal').modal();
+					$('[type="submit"]').button('loading');
+
+					$.post('http://localhost/gz0820web/index.php/index/Login/checkLogin',$(e).serializeArray(),function(data){
+						$('.modal-body').html(data.msg);
+						$('.modal').modal();
+						if(data.status!=1){
+							$(':submit').button('reset');
+							return false;
+						}else{
+							setInterval(function(){
+								location.href="index.html";
+							},2000);
+
+						}
+					},'json');
+					return false;
+				}
+			});
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+ 
+<head>
+	<meta charset="utf-8" />
+	<title>01小球碰撞(面向对象版)</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		#wrapper {
+			width: 600px;
+			height: 400px;
+			margin: 0 auto;
+			border: 4px solid gold;
+		}
+	</style>
+</head>
+<body>
+	<div id="wrapper"></div>
+</body>
+`
+</html>
+<script type="text/javascript">
+	function Ball(parentObj) {
+		if (!parentObj) {
+			return;
+		}
+		//console.log(parentObj);
+		console.log(this);
+		//定位父级及样式设置
+		parentObj.style.position = "relative";
+		this.obj = document.createElement("div");
+		parentObj.appendChild(this.obj);
+		this.obj.style.position = "absolute";
+		//随机半径(因为宽度高度都是需要使用this.r的,所以应该定义在宽度高度之前)
+		this.r =10;
+		this.obj.style.width = this.obj.style.height = this.r * 2 + "px";
+		this.obj.style.borderRadius = "50%";
+
+//随机位置
+		this.x = ranNum(0, parentObj.clientWidth - this.r * 2);
+		this.y = ranNum(0, parentObj.clientHeight - this.r * 2);
+		//位置
+		this.obj.style.left = this.x + "px";
+		this.obj.style.top = this.y + "px";
+		
+		//随机速率大小及方向
+		this.speedX = ranNum(3, 5) * (ranNum(0, 1) ? -1 : 1);
+		this.speedY = ranNum(3, 5) * (ranNum(0, 1) ? -1 : 1);
+ 
+	}
+	//设置小球的方法
+	//注意:当函数在等号的右侧时,必须使用分号结束.
+	Ball.prototype.move = function () {
+		//注意:下面代码可以省略window
+		window.setInterval(doMove, 10);
+		//改变this的指向
+		var jjw = this;
+		function doMove() {
+			//console.log(this);
+			jjw.x += jjw.speedX;
+			jjw.y += jjw.speedY;
+			//左边界控制
+			if (jjw.x <= 0) {
+				jjw.x = 0;
+				//改变方向
+				jjw.speedX *= -1;
+			}
+			//右边界控制
+			if (jjw.x >= jjw.obj.parentElement.clientWidth - jjw.r * 2) {
+				jjw.x = jjw.obj.parentElement.clientWidth - jjw.r * 2;
+				jjw.speedX *= -1;
+			}
+			//上边界控制
+			if (jjw.y <= 0) {
+				jjw.y = 0;
+				//改变方向
+				jjw.speedY *= -1;
+			}
+ 
+			//下边界控制
+			if (jjw.y >= jjw.obj.parentElement.clientHeight - jjw.r * 2) {
+				jjw.y = jjw.obj.parentElement.clientHeight - jjw.r * 2;
+				jjw.speedY *= -1;
+			}
+			jjw.obj.style.left = jjw.x + "px";
+			jjw.obj.style.top = jjw.y + "px";
+		}
+	};
+ 
+	function ranNum(x, y) {
+		return Math.floor(Math.random() * (y - x + 1) + x);
+	}
+ 
+	var oWrap = document.getElementById("wrapper");
+
+		//把小球添加到wrapper中
+		var ball2=new Ball(oWrap);
+		var ball1=new Ball(oWrap);
+		var ball = new Ball(oWrap);
+		this.ball.obj.style.backgroundColor='red';
+		this.ball1.obj.style.backgroundColor='blue';
+		this.ball2.obj.style.backgroundColor='gray';
+		ball.move();
+	    ball1.move();
+	    ball2.move();
+</script>

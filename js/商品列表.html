@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+			}
+		/*去除列表样式*/
+		ul{list-style:none;}
+		/*去除下划线*/
+		a{text-decoration:none;}
+		div.content>ul{ 
+			width:234px;
+			padding:25px 0px;
+			background:#432108;
+			position:relative;
+		 }
+		div.content>ul>li{ 
+				
+			line-height:42px;
+			/*position:relative;*/
+		 }
+		div.content>ul>li a{ 
+			color:#fff;
+			/*将行级标签转换为块级标签*/
+			display:block;
+			width:234px;
+			height:42px;
+			padding-left:20px;
+			box-sizing:border-box;
+			background:#432108;
+
+		 }
+		div.content>ul>li a span{ 
+			font-size:20px;
+			float:right;
+			margin-right:20px;
+		 }
+		div.content>ul>li:hover a{ 
+			background:orange;
+		 }
+		div.content>ul>li div{ 
+			width:500px;
+			height:470px;
+			background:cyan;
+			position:absolute;
+			left:234px;
+			top:0px;
+			display:none;
+		 }
+		div.content>ul>li:hover div{ 
+			display:block;
+		 }
+		div.content>ul>li>div.one{ 
+			/*width:800px;
+			height:500px;*/
+			background:#abcdef;
+		 }
+		 div.content>ul>li>div.two{ 
+			/*width:700px;
+			height:500px;*/
+			background:#fedcba;
+		 }
+	</style>
+</head>
+<body>
+	<div class="content">
+		<ul>
+			<li>
+				<a href="http://www.mi.com">笔记本 平板<span>></span></a>
+				<div class="one">
+					<ul>
+						<li>dddds</li>
+						<li>dddds</li>
+						<li>dddds</li>
+						<li>dddds</li>
+						<li>dddds</li>
+					</ul>
+				</div>
+			</li>
+			<li>
+				<a href="http://www.mi.com">笔记本 平板<span>></span></a>
+				<div class="two">2</div>
+			</li>
+			<li>
+				<a href="http://www.mi.com">笔记本 平板<span>></span></a>
+				<div>3</div>
+			</li>
+			<li>
+				<a href="http://www.mi.com">笔记本 平板<span>></span></a>
+				<div>4</div>
+			</li>
+			<li>
+				<a href="http://www.mi.com">笔记本 平板<span>></span></a>
+				<div>5</div>
+			</li>
+			<li>
+				<a href="http://www.mi.com">笔记本 平板<span>></span></a>
+				<div>6</div>
+			</li>
+			<li>
+				<a href="http://www.mi.com">笔记本 平板<span>></span></a>
+				<div>7</div>
+			</li>
+			<li>
+				<a href="http://www.mi.com">笔记本 平板<span>></span></a>
+				<div>8</div>
+			</li>
+			<li>
+				<a href="http://www.mi.com">笔记本 平板<span>></span></a>
+				<div>9</div>
+			</li>
+			<li>
+				<a href="http://www.mi.com">笔记本 平板<span>></span></a>
+				<div>10</div>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>

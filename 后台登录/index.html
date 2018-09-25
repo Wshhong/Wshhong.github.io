@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="lib/css/bootstrap.css"/>
+		<script src="jquery-3.3.1.js" type="text/javascript" charset="utf-8"></script>
+		<script src="jquery.validate.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="lib/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.container{
+				margin-top: 100px;
+				width: 500px;
+				height: 350px;
+				background: deepskyblue;
+				box-shadow: 0px 5px 30px #0269C2;
+				border-radius: 15px;
+			}
+		   .container p{
+		   	text-align: center;
+		   	margin-top: 20px;
+		   	font-size: 23px;
+		   }
+		   .form-control-feedback{
+		   	left: 15px;
+		   	margin-top: 0px;
+		   }
+		   .form-control{
+		   	text-indent: 16px;
+		   }
+		   label.error{
+		   	color: brown;
+		   }
+		   .control-label{
+		   	float: left;
+		   }
+		</style>
+	</head>
+	<body>
+		<div class="container" >
+		<p>登录管理后台</p>
+		<form class="form-horizontal" id="loginForm">
+			<fieldset>
+				<div class="form-group has-feedback">
+					<label class="control-label col-lg-3">账号：</label>
+					<div class="col-sm-8">
+						<span class="glyphicon glyphicon-user form-control-feedback  has-success"></span>
+					<input id="username" type="text" class="form-control" name="username"/>
+					<label class="sr-only"></label>
+					</div>
+				</div>
+				<div class="form-group has-feedback">
+					<label class="control-label col-lg-3">密码：</label>
+					<div class="col-sm-8">
+						<span class="glyphicon glyphicon-lock form-control-feedback  has-feedback"></span>
+					<input type="password" id="password" class="form-control " name="password"/>
+					<label class="sr-only"></label>
+					
+					</div>
+				</div>
+				<div class="form-group has-feedback">
+					<label class="control-label col-lg-3">验证码：</label>
+					<div class="col-sm-4">
+						<span class="glyphicon glyphicon-picture form-control-feedback  has-feedback"></span>
+					<input type="text" class="form-control " name="vcode"/>
+					</div><img src="vcode.png"  class="img-thumbnail" width="80"/>
+				</div>
+			</fieldset>
+			<button type="submit" class="btn btn-default" data-loading-text="正在登录"style="margin-left: 125px;">登录</button>
+			<button type="reset" class="btn btn-default "  id="clear" style="margin-left: 80px;">清空数据</button>
+		</form>
+		
+		<div class="modal fade" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+		  <div class="modal-header">登录信息</div>
+		  <div class="modal-body">登录成功</div>
+			<div class="modal-footer">
+
+			</div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+	</body>
+	<script type="text/javascript">
+		$(function () {
+  		$('[data-toggle="tooltip"]').tooltip()
+		})
+		$(document).ready(function(){
+    $(".form-horizontal").validate({
+      rules:{
+        username:{
+          required:true,
+        rangelength:[4,10]
+        },
+        password:{
+          required:true,
+          rangelength:[4,16]
+        },
+      },
+      messages:{
+      	username:{
+      		required:"*账号不能为空",
+      		rangelength:'用户名长度为3-10位'
+      	},
+      	password:{
+      		required:"*密码不能为空",
+      		rangelength:"密码长度为4-16位",
+      	}
+      },
+      //清空表单数据
+      unhighlight:function(element,errorClass,validateClass){
+      	$(element).tooltip('destroy').removeClass(errorClass);
+      },
+      errorPlacement:function(error,element){
+      	if ($(element).next('div').hasClass('tooltip')) {
+      		$(element).attr('data-original-title',error.text()).tooltip();
+      	} else{
+      		$(element).attr('title',error.text()).tooltip('show');
+      	}
+      },
+     errorPlacement:function(error,element){
+					if($(element).next('div').hasClass('tooltip')){
+						$(element).attr('data-original-title',error.text()).tooltip();
+					}else{
+						$(element).attr('title',error.text()).tooltip('show');
+					}
+				},
+				submitHandler:function(e){
+					//$('.modal').modal();
+					$('[type="submit"]').button('loading');
+					
+					var zh=$("#username").val();
+                    var mm=$("#password").val();
+					//$.post('http://192.168.15.2/gz0820web/index.php/index/Login/checkLogin',$(e).serializeArray(),function(data){
+					$.post('http://192.168.15.2/gz0820web/login',{username:zh,password:mm},function(data){
+						$('.modal-body').html(data.msg);
+						$('.modal').modal();
+						if(data.status!=1){
+							$(':submit').button('reset');
+							return false;
+						}else{
+							setInterval(function(){
+								location.href="后台导航.html";
+							},2000);
+
+						}
+					},'json');
+					return false;
+				}
+    });
+  });
+	</script>
+</html>

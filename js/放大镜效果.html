@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#fdj{
+				width: 1154px;
+				margin: 20px auto;
+			}
+			.small{
+				width: 400px;
+				height: 400px;
+				border: 1px solid #000000;
+				float: left;
+				position: relative;
+			}
+			.small div{
+				width: 100px;
+				height: 100px;
+				background-color: rgba(0,0,0,0.3);
+				position: absolute;
+				top: 0;
+				left: 0;
+				display: none;
+				cursor: move;
+			}
+			.big{
+				width: 540px;
+				height: 540px;
+				border: 1px solid #000000;
+				float: left;
+				display: none;
+				overflow: hidden;
+				position: relative;
+			}
+			.big img{
+				display: block;
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="fdj">
+			<div class="small">
+				<img src="img/3.jpg"/>
+				<div class="pop"></div>
+			</div>
+			<div class="big">
+				<img src="img/3.jpg" width="1000" height="1000"/>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var small = document.getElementsByClassName("small")[0]
+		var pop = document.getElementsByClassName("pop")[0]
+		var big = document.getElementsByClassName("big")[0]
+		var img = document.getElementsByTagName("img")[1]
+		
+		var maxLeft;
+		var maxTop;
+		//在small上添加事件监听
+		small.addEventListener("mouseover",function(){
+			pop.style.display = "block"
+			big.style.display = "block"
+			//计算pop所能允许的最大的left和top值
+			maxLeft = small.offsetWidth - pop.offsetWidth
+			maxTop = small.offsetHeight - pop.offsetHeight
+		},false)
+		small.addEventListener("mousemove",function(e){
+			//计算pop的left和top的值
+			var popLeft = e.clientX - small.offsetLeft - pop.offsetWidth / 2
+			var popTop = e.clientY - small.offsetTop - pop.offsetHeight / 2
+			//限制pop左边界和上边界
+			popLeft = popLeft <= 0 ? 0 : popLeft
+			popTop = popTop <= 0 ? 0 : popTop
+			//限制右边界和下边界
+			popLeft = popLeft >= maxLeft ? maxLeft : popLeft
+			popTop = popTop >= maxTop ? maxTop : popTop
+			pop.style.left = popLeft + "px"
+			pop.style.top = popTop + "px"
+			img.style.left = -popLeft / maxLeft * 400 + "px"
+			img.style.top = -popTop / maxTop * 400 + "px"
+		},false)
+		small.addEventListener("mouseout",function(event){
+			pop.style.display = "none"
+			big.style.display = "none"
+		})
+	</script>
+</html>

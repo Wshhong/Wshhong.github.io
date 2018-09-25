@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<p id="time"></p>
+	</body>
+	<script type="text/javascript">
+		window.setInterval(function(){
+			var timeElement=document.getElementById("time");
+			var a=new Date().toLocaleString();
+		     timeElement.innerHTML=a;
+		},1000)
+	</script>
+</html>
