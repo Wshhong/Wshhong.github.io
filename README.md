@@ -8,10 +8,10 @@
 [单选与复选框](https://wshhong.github.io/css3/单选与复选框.html)<br/>
 [transtion变形与转换](https://wshhong.github.io/css3/transtion变形与转换.html)<br/>
 # jQuery
-[瀑布流](https://wshhong.github.io/jQuery/jqueryajax.html)<br/>
+[瀑布流](https://wshhong.github.io/瀑布流/jqueryajax.html)<br/>
 [图片切换](https://wshhong.github.io/jQuery/图片切换.html)<br/>
-[后台登录页面](https://wshhong.github.io/jQuery/index.html)<br/>
-[后台登录导航页面](https://wshhong.github.io/jQuery/后台导航.html)<br/>
+[后台登录页面](https://wshhong.github.io/后台登录/index.html)<br/>
+[后台登录导航页面](https://wshhong.github.io/后台登录/后台导航.html)<br/>
 # js
 [定时器](https://wshhong.github.io/js/定时器.html)<br/>
 [放大镜效果](https://wshhong.github.io/js/放大镜效果.html)<br/>
