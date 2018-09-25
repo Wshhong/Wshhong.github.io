@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.wsh{
+				width: 80px;
+				height: 50px;
+				position: relative;
+				display: inline-block;
+			}
+			.wsh input{
+				display: none;
+			}
+			.jjw{
+				background-color: #ccc;
+				position: absolute;
+				cursor: pointer;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				-webkit-transition: 0.5s;
+				transition: 0.5s;
+			}
+			/*插入按钮块*/
+			.jjw:before{
+				position: absolute;
+				content: "";
+				height: 40px;
+				width: 40px;
+				left: 6px;
+				bottom: 4px;
+				background-color: navajowhite;
+				-webkit-transition: .0.5s;
+				transition: 0.5s;
+			}
+			/**给紧接在checked之后的jjw添加背景颜色
+			 * 添加按钮被触发是的颜色
+			 */
+			input:checked+.jjw{
+				background-color: darkseagreen;
+			}
+			input:checked+.jjw:before{
+				-webkit-transform: translateX(26px);
+				-ms-transform: translateX(26px);
+				transform: translateX(26px);
+			}
+			.jjw.wjj{
+				border-radius: 34px;
+			}
+			.jjw.wjj:before{
+				border-radius: 50%;;
+			}
+		</style>
+	</head>
+	<body>
+		<label class="wsh">
+			<input type="checkbox" checked />
+			<div class="jjw"></div>
+		</label>
+		
+		<label class="wsh">
+			<input type="checkbox"/>
+			<div class="jjw"></div>
+		</label><br /><br />
+		
+		<label class="wsh">
+			<input type="checkbox" checked />
+			<div class="jjw wjj"></div>
+		</label>
+		
+		<label class="wsh">
+			<input type="checkbox"/>
+			<div class="jjw wjj"></div>
+		</label>
+	</body>
+</html>

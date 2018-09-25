@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.wsh{
+				display: inline-block;
+			}
+			.wsh input{
+				display: none;
+			}
+			.jjw:before{
+				content: "";
+				width: 25px;
+				height: 20px;
+				background:url(img/input-unchecked.png);	
+				background-repeat: no-repeat;
+				display: inline-block;
+				margin-right: 5px;
+				margin-top: -2px;
+				vertical-align: middle;
+			}
+			.jjw{
+				background: #eaeaea;
+				line-height: 40px;
+				font-size: 18px;
+				padding: 0 20px 0 10px; 
+				border-radius: 5px;
+			}
+			input:checked+.jjw{
+				background: aquamarine;
+			}
+			.wsh input:checked+.jjw:before{
+				background: url(img/input-checked.png);
+				background-repeat: no-repeat;
+			}
+		</style>
+	</head>
+	<body>
+<h3>单选框</h3>
+<!--单选框只能为一组，因此单选框的name要是一样的
+-->
+<label class="wsh">
+      	<input type="radio"  name="gs"/>
+      	<div class="jjw">培训</div>
+      </label>
+      
+      <label class="wsh">
+      	<input type="radio" name="gs"/>
+      	<div class="jjw">公司</div>
+      </label><br /><br />
+      
+      <h3>多选框</h3>
+      <label class="wsh">
+      	<input type="checkbox" />
+      	<div class="jjw">粤嵌</div>
+      </label> 
+      
+      <label class="wsh">
+      	<input type="checkbox" />
+      	<div class="jjw">达内</div>
+      </label> 
+      
+      <label class="wsh">
+      	<input type="checkbox" />
+      	<div class="jjw">励锋</div>
+      </label>
+      
+       <label class="wsh">
+      	<input type="checkbox" />
+      	<div class="jjw">兄弟连</div>
+      </label>
+	</body>
+</html>

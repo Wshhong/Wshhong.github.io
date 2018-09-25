@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.container{
+				position: absolute;
+				width: 100px;
+				height: 100px;
+                left: 33%;
+                top: 50%;
+				-webkit-transform: translateX(-50%) translateY(-50%);
+				transform: translateX(-50%) translateY(-50%);
+  				-webkit-perspective:400px;
+				perspective: 400px;
+			}
+			.box{
+				width: 100px;
+				height: 100px;
+				transform-style: preserve-3d;
+				-webkit-transform-style: preserve-3d;
+ 				-webkit-animation:rotate 4s infinite ease-in-out;
+				animation:rotate 4s infinite ease-in-out;
+                -webkit-transform-origin:50% 50%; 
+			     transform-origin: 50% 50%;
+			}
+			.stran{
+				position: absolute;
+				display: block;
+				width: 100px;
+				height: 100px;
+			}
+			.stran1{
+				background: #00FFFF;
+  -webkit-transform:translateZ(100px);
+				transform: translateZ(100px);
+			}
+			.stran2{
+				background: #8A2BE2;
+				transform: rotateY(-90deg) translateZ(100px);
+				  -webkit-transform: rotateY(-90deg) translateZ(100px);
+			}
+			.stran3{
+				background: #FFFF00;
+				transform: rotateY(90deg) translateZ(100px);
+				  -webkit-transform: rotateY(90deg) translateZ(100px);
+			}
+			.stran4{
+				background:red;
+				transform: rotateY(180deg) translateZ(100px);
+				  -webkit-transform: rotateY(180deg) translateZ(100px);
+			}
+			.stran5{
+				background: chartreuse;
+				transform: rotateX(90deg) translateZ(100px);
+				  -webkit-transform: rotateX(90deg) translateZ(100px);
+			}
+			.stran6{
+				background: deeppink;
+				transform: rotateX(-90deg) translateZ(100px);
+				  -webkit-transform: rotateX(-90deg) translateZ(100px);
+				
+			}
+			@-webkit-keyframes rotate{
+			  0%{
+			    -webkit-transform:rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+			  }
+			  33.33%{
+			     -webkit-transform:rotateX(360deg) rotateY(0deg)  rotateZ(0deg);    
+			  }
+			  66.66%{
+			     -webkit-transform:rotateX(360deg) rotateY(360deg)  rotateZ(0deg);
+			  }
+			  100%{
+			     -webkit-transform:rotateX(360deg) rotateY(360deg)  rotateZ(360deg);
+			  }
+			}
+			@keyframes rotate{
+			  0%{
+			    transform:rotateX(0deg) rotateY(0deg);
+			  }
+			  50%{
+			    transform:rotateX(360deg) rotateY(0deg);    
+			  }
+			  100%{
+			    transform:rotateX(360deg) rotateY(360deg);
+			  }
+			}
+
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="box">
+				<div class="stran stran1"></div>
+				<div class="stran stran2"></div>
+				<div class="stran stran3"></div>
+				<div class="stran stran4"></div>
+				<div class="stran stran5"></div>
+				<div class="stran stran6"></div>
+			</div>
+		</div>
+	</body>
+</html>

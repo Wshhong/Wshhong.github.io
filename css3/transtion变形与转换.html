@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			.contioner{
+				margin: 100px 50px;
+				float: left;
+				width: 100px;
+				height: 100px;
+				background:darkkhaki;
+				position: relative;
+			}
+			.box{
+				position: absolute;
+				height: 50px;
+				width: 50px;
+				background: gray;
+				top: 25px;
+			    font-size: 10px;
+				right: 25px;
+			}
+			.card{
+				height: 50px;
+				width: 50px;
+				background: aqua;
+			    transition: 0.4S;
+			}
+			.box:hover .rotateX{
+					transform: rotateX(45deg);
+			}
+			.box:hover .rotateY{
+					transform:rotateY(45deg)
+			}
+			.box:hover .rotateZ{
+					transform: rotateZ(45deg);
+			}
+			.box:hover .scale{
+				transform: scale(2);
+			}
+			.box:hover .scaleX{
+				transform: scaleX(2);
+			}
+			.box:hover .skew{
+				transform: skew(60deg, 60deg);
+			}
+			.box:hover .skewX{
+				transform: skewX(45deg);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="contioner">
+			<div class="box">
+			<div class="card rotateX"></div>
+			rotateX
+		</div>
+		</div>
+		<div class="contioner">
+			<div class="box">
+			<div class="card rotateY"></div>
+			rotateY
+		</div>
+		</div>
+		<div class="contioner">
+			<div class="box">
+			<div class="card rotateZ"></div>
+			rotateZ
+		</div>
+		</div>
+		<div class="contioner">
+			<div class="box">
+			<div class="card scale"></div>
+			scale放大
+		</div>
+		</div>
+		<div class="contioner">
+			<div class="box">
+			<div class="card scaleX"></div>
+			x轴放大
+		</div>
+		</div>
+		<div class="contioner">
+			<div class="box">
+			<div class="card skew"></div>
+			skew扭曲
+		</div>
+		</div>
+		
+		
+	</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.container img{
+				width: 150px;
+				margin: 250px 315px;
+				position: absolute;
+			}
+			.container{
+				width: 800px;
+				height: 600px;
+				margin: 100px auto;
+				position: relative;
+			}
+			.box{
+				width: 800px;
+				height: 600px;
+				position: absolute;
+			}
+			.wsh{
+				width: 400px;
+				height:300px;
+			}
+			.jjw{
+				width: 400px;
+				height:300px;
+				float: left;
+				opacity: 0;
+		        transform: scale(0.7);
+			    background-repeat: no-repeat;
+			     transition: all .7s linear .2s;
+			}
+			.left-top{
+				background: url(img/a4.png);
+				background-position-y:24px ;
+			}
+			.right-top{
+				background: url(img/a4.png);
+				background-position-x:-400px ;
+				background-position-y:24px ;
+			}
+			.left-bottom{
+				background: url(img/a4.png);
+				background-position-y:325px ;
+			}
+			.right-bottom{
+				background: url(img/a4.png);
+				background-position-x:-400px ;
+				background-position-y:-275px ;
+			}	
+			.container img:hover+.box{
+				display: block;
+			}
+			.container .wsh:hover+.jjw{
+				transform:scale(1);
+				opacity: 1;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<img src="img/a4.png" />
+			<div class="box">
+				<div class="jjw left-top"></div>
+				<div class="jjw right-top"></div>
+				<div class="jjw left-bottom"></div>
+				<div class="jjw right-bottom"></div>
+			</div>
+			<div class="wsh"></div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-3.3.1.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<style type="text/css">
+		.stran{
+			perspective: 600px;
+		}
+	    .stege{
+	    	text-align: center;
+	    	width: 300px;
+	    	height: 400px;
+	    	background: gray;
+	    	margin: 200px auto;
+	    	transform-style: preserve-3d;
+	    	transition: all 1s; 
+	    }
+	    .stege li{
+	    	list-style: none;
+	    	display: inline-block;
+	    	width: 30px;
+	    	height: 30px;
+	    	margin: 200px 15px;
+	    	position: relative;
+	    }
+	    .stege span{
+	    	background: lightskyblue;
+	    	font-size: 18px;
+	    	height:30px;
+	    	transform-origin: 0 50% 0;
+	    	transform: rotate(-60deg) rotateY(-90deg);
+	    	position: absolute;
+	    	transform-style: preserve-3d;
+	    	transition: 1s;
+	    }
+	    .stege span::before{
+	    	content: "啥";
+	    	display: block;
+	    	position: absolute;
+	    	top: 0;
+	    	left: 0;
+	    	width: 30px;
+	    	height: 30px;
+	    	background: lightskyblue;
+	    	transform-origin: 0 50% 0;
+	    	transform: rotateY(90deg)translateZ(0px);
+	    	transition: all 1s;
+	    }
+	    .stege span::after{
+	    	content: "";
+	    	display: block;
+	    	position: absolute;
+	    	top: 0;
+	    	left: 0;
+	    	width: 100%;
+	    	height: 30px;
+	    	background: lightskyblue;
+	    	transform-origin: 50% 100% 0;
+	    	transform: rotateX(90deg);
+	    }
+	    .stege.wsh{
+	    	transform: rotateX(45deg);
+	    }
+	    .stege.wsh span{
+	    	width: 100px;
+	    }
+	    .stege.wsh span::before{
+	    	transform:rotateY(90deg) translateZ(100px) ;
+	    }
+	</style>
+	<body>
+		
+			<div class="stran">
+				<div class="stege">
+					<li><span> &nbsp;丽敏揭</span></li>
+					<li><span> &nbsp;妈他你</span></li>
+					<li><span> &nbsp;是不是</span></li>
+					<li><span> &nbsp;啊子傻</span></li>
+				</div>
+			</div>
+	</body>
+	<script type="text/javascript">
+		$('.stege').click(function(e){
+			$(this).toggleClass('wsh');
+			e.preventDefault();
+		});
+	</script>
+</html>
