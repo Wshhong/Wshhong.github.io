@@ -1,2 +1,2 @@
 # wsh
-[css3](https://wshhong.github.io/css3/)
+[css3](https://wshhong.github.io/css3/svg.html)
