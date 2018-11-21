@@ -1,0 +1,124 @@
+@charset "utf-8";
+.footer{
+    width:100%;
+	padding:50px;
+	background-color: #fff;
+}
+.footer-wrap{
+    width:1200px;
+	margin:auto;
+}
+.footer-head{
+    width: 100%;
+    height: 100px;
+    border-bottom: 2px solid #FF5777;
+}
+.footer-head > div{
+    height: 100px;
+    float: left;
+    width: 25%;
+}
+.footer-head > div h4{   
+    width: 78%;
+	height: 25px;
+    margin-left: 25px;
+    margin-bottom: 10px;
+    padding-left: 20px;
+    line-height: 25px;
+	font-size: 14px;
+    color: #666;
+}
+.footer-head > div ul{
+    width: 248px;
+}
+.footer-head > div ul li{
+    float: left; 
+	display: inline-block;
+    height: 20px;
+	margin-left:20px;
+	margin-right:15px;
+    line-height: 20px;
+}
+.footer-head > div ul li{
+    font-size:12px;
+    color: #999;
+}
+.footer-head > div ul li a{
+    font-size:12px;
+    color: #999;
+}
+.footer-head > div ul li a:hover{
+    color:#FE559E;
+}
+.download > ul li{
+    position:relative;
+}
+.download > ul li img{
+    display:none;
+    position:absolute;
+    width:60px;
+	height:60px;
+    top:30px;
+	left:-10px;
+}
+.download > ul li:hover img{
+    display:block;
+}
+.footer-center{
+    margin-bottom: 8px;
+    border-bottom: 1px solid #ddd;
+	line-height: 27px;
+}
+.footer-center > ul li{
+    float: left;
+    margin-bottom: 5px;
+}
+.footer-center > ul li a{
+    position:relative;
+    font-size:12px;
+    color:#666;
+}
+.footer-center > ul li a:hover{
+    color:#FE559E;
+}
+.footer-center > ul li b{
+    margin: 0 5px;
+	font-size: 12px;
+	font-weight: 50;
+	color:#666;
+}
+.about-us{
+    margin-bottom:10px;
+}
+ .about-us > a{
+    display:inline-block;
+	margin-right:20px;
+    font-size:12px;
+    color:#666;
+}
+.about-us .report{
+    margin-right:5px;
+}
+.about-us > span{
+    font-size:12px;
+    color:#666;
+}
+.about-us > a:hover{
+    color:#FE559E;
+}
+
+.permit > ul li{
+    float: left;
+	margin-bottom:10px;
+	font-size:12px;
+	color:#666;
+}
+.permit > ul li > a{
+    font-size:12px;
+	color:#666;
+}
+.permit > ul li > b{
+    margin:0 5px;
+}
+
+

@@ -1,0 +1,271 @@
+@charset "utf-8";
+
+*{margin:0;padding:0;}
+a{text-decoration:none;}
+ul,ol{list-style:none;}
+img{border:0;}
+body{
+	overflow-x:hidden;
+}
+.clearfix:after{
+	display: block;
+	content:'';
+	clear: both;
+}
+.wrap{
+    background-color: #f5f5f5;
+}
+#nav{
+    width:100%;
+	height:30px;
+	border:1px solid #ddd;
+	background-color:#f2f2f2;
+}
+.nav-con{
+    width:1190px;
+	margin:auto;
+}
+.nav-left{
+    float:left;
+}
+.nav-left > a{
+    display:inline-block;
+	height:30px;
+	margin:0 20px;
+	padding:0 20px;
+    line-height:30px;
+	font-size:12px;
+	color:#000;
+    background:url('../images/nav/elves1.png') no-repeat -4px -234px;
+}
+.nav-right{
+    float:right;
+}
+.nav-right ul li{
+	position: relative;
+	float:left;
+	height: 30px;
+	margin:0 15px 0 0;
+	line-height:30px;
+}
+.nav-right ul li+li:after{
+    position: absolute;
+	content:'';
+	left:-15px;
+	top:9px;
+	height: 13px;
+	width: 1px;
+	background-color: #ddd;
+}
+.nav-right ul li a{
+    display:inline-block;
+	height:30px;
+	margin-right:15px;
+    line-height:30px;
+	font-size:12px;
+	color:#000;
+	vertical-align:middle;
+}
+
+.elves-first{
+    padding-left:20px;
+    background:url('../images/nav/elves1.png') no-repeat -4px -528px;
+}
+.elves-second{
+    padding-left:20px;
+    background:url('../images/nav/elves1.png') no-repeat -5px -421px;
+}
+.elves-third{
+    padding-left:20px;
+    background:url('../images/nav/elves1.png') no-repeat -5px -567px;
+}
+.icons .elves{
+    margin-right:0;
+}
+.icons i{
+    display:inline-block;
+	width:10px;
+	height:30px;
+	vertical-align:middle;
+    background:url('../images/nav/elves1.png') no-repeat -4px -463px;
+}
+.list{
+    overflow: hidden;
+	height:0;
+	padding-left:10px;
+	transition:1s;
+    background-color:#f2f2f2;
+ } 
+.nav-right ul li .list > a {
+    display: block;
+	height: 30px;
+	line-height: 30px;
+	color:#000;
+}
+ 
+ .icons:hover .list{
+	height: 95px;
+}
+
+
+.right-nav{
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    right: 0;
+	width: 30px;
+	height: 100%;
+    background-color: #0E0E0E;
+}
+.right-nav a{
+    color:#fff;
+	font-size:12px;
+}
+.blank{
+    width: 30px;
+	height: 50px;
+}
+.right-nav-first{
+    position:relative;
+    display:block;
+    width: 30px;
+	height: 90px;
+}
+.right-nav-first:after{
+    position:absolute;
+    display: block;
+	left:5px;
+	top:90px;
+	content:'';
+	clear: both;
+    width:20px;
+	height:1px;
+    background-color:rgba(221,221,221,.6);
+}
+.shopping-cart > a i{
+    display:block;
+    width: 30px;
+	height: 30px;
+    background:url('../images/nav/elves1.png') no-repeat -267px -128px;
+}
+.right-nav-first > div{
+    padding:0 9px;
+}
+.coupon > a i{
+    display:block;
+    width: 30px;
+	height: 30px;
+    background:url('../images/nav/elves1.png') no-repeat -267px -157px;
+}
+.right-nav-second{
+    position:relative;
+    display:block;
+    width: 30px;
+	height: 75px;
+}
+.right-nav-second:after{
+    position:absolute;
+    display: block;
+	left:5px;
+	top:77px;
+	content:'';
+	clear: both;
+    width:20px;
+	height:1px;
+    background-color:rgba(221,221,221,.6);
+}
+.wallet > a i{
+    display:block;
+    width: 30px;
+	height: 30px;
+    background:url('../images/nav/elves1.png') no-repeat -267px -187px;
+}
+.right-nav-second > div{
+    padding:0 9px;
+}
+.footprint > a i{
+    display:block;
+    width: 30px;
+	height: 30px;
+    background:url('../images/nav/elves1.png') no-repeat -267px -217px;
+}
+
+.right-nav-third{
+    position:relative;
+    display:block;
+    width: 30px;
+	height: 40px;
+}
+.qr-code > a:after{
+    position:absolute;
+    display: block;
+	left:5px;
+	top:420px;
+	content:'';
+	clear: both;
+    width:20px;
+	height:1px;
+    background-color:rgba(221,221,221,.6);
+}
+.qr-code > a i{
+    display:block;
+    width: 16px;
+	height: 16px;
+	padding:12px 7px;
+}
+.qr-code .QR-Code2{
+    display:none;
+    position:absolute;
+	top:368px;
+	left:-176px;
+}
+.qr-code:hover .QR-Code2{
+    display:block;
+}
+.top{
+    margin-top:250px;
+}
+.top > a{
+    position:relative;
+    display:block;
+    width: 30px;
+	height: 40px;
+}
+.top > a:after{
+    position:absolute;
+    display: block;
+	left:5px;
+	top:0;
+	content:'';
+	clear: both;
+    width:20px;
+	height:1px;
+    background-color:rgba(221,221,221,.6);
+}
+.top > a i{
+    display:block;
+    width: 30px;
+	height: 30px;
+    background:url('../images/nav/elves1.png') no-repeat -267px -275px;
+}
+.right-nav a:hover{
+    background:rgba(255,0,0,.8);
+}
+.right-nav a:hover:after{
+    display:none;
+}
+.right-nav .qr-code > a:hover:after{
+    display:block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
